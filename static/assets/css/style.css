@@ -1,0 +1,630 @@
+body{
+    color: #000000;
+    font-family:'Open Sans', sans-serif !important ;
+    text-align: center;
+    max-width: 100%;
+}
+hr{
+  max-width: 100%;
+}
+ul{
+  list-style-type: none;
+}
+h1{
+    font-weight: 600;
+    color: #000000;
+}
+p{
+    color: #2c2b2b;
+}
+/* header  */
+header {
+    background-color: rgba(255, 255, 255, 0.53);
+    color: #070063;
+    z-index: 1;
+    max-width: 100%;
+  }
+  header a {
+    color: #4603e4;
+  }
+  
+  header::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: rgba(188, 188, 188, 0.02);
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+  }
+  
+  .nav-link {
+    font-family: "Rajdhani", sans-serif;
+    text-transform: uppercase;
+    counter-reset: #070063;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .navbar-collapse{
+    background-color: #fbf8f8;
+    color: #fff;
+  }
+
+  .navbar-collapse .nav-link {
+    font-size: 1.125rem;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .navbar-collapse .nav-link:hover {
+    color: #707070;
+  }
+  
+  .navbar-toggler-icon{
+    color: #434343;
+    font-size: 35px;
+  }
+  .navbar-toggler{
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    line-height: 1.5;
+  }
+  .navbar-toggler::after{
+    border: none;
+  }
+  .close{
+    color: #f70000;
+  }
+
+  /*-----------------------------------
+    2 - Hero
+------------------------------------*/
+.hero {
+    background: url("") no-repeat center;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+    z-index: 0;
+    max-width: 100%;
+  }
+  .hero .container .row {
+    position: relative;
+    z-index: 5;
+    padding-top: 120px;
+  }
+  .hero h1 {
+    color: #141414;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.466);
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .hero p {
+    color: #000000;
+    padding: 35px 20PX 35px 30px;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 10px;
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: 510;
+  }
+  .hero .btn {
+    margin-top: 50px;
+  }
+  .hero .lowText{
+    font-size: 17px;
+    margin-top: 20px;
+    margin-bottom: -10px;
+  }
+  .hero .highlightText{
+    color: #1f1f1f;
+    margin: 0 10px 0 5px;
+  }
+  .hero img{
+    max-height: 800px;
+    width: 100%;
+  }
+  .hero .diag-bg {
+    width: 100%;
+    height: 100%;
+    -webkit-clip-path: polygon(0 0, 100% 100%, 100% 0);
+            clip-path: polygon(0 0, 100% 100%, 100% 0);
+    background-color: rgba(47, 0, 255, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .hero .texture {
+    width: 100%;
+    height: 100%;
+    background: url("") no-repeat center;
+    background-size: cover;
+    opacity: 0.4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  .hero::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.02);
+    position: absolute;
+    left: 0;
+    bottom: 29%;
+  }
+  
+  .hero::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.02);
+    position: absolute;
+    left: 0;
+    bottom: 58%;
+  }
+  .lowText .fa-circle-check{
+    color: #00a108;
+  }
+
+  /* services  */
+  .title {
+    font-weight: 200;
+    text-transform: lowercase;
+    font-size: 17px;
+    max-width: 100%;
+  }
+  
+  .title h6 {
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .title h1 {
+    font-size: 35px;
+  }
+  
+  .title .title-blue {
+    color: #26264b;
+  }
+  .services {
+    padding: 80px 0 50px;
+    min-height: 100vh;
+    width: 100%;
+  }
+  .services .title {
+    margin-bottom: 20px;
+  }
+  
+  .services .media {
+    margin: 30px 0;
+    padding: 40px 10px;
+    border: 1px solid #a7a7a7;
+  }
+  .services h2{
+    color: #070063;
+    padding: 20px 0 30px 0;
+  }
+  
+  .services h5 {
+    color: #26264b;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+  }
+  .services .container .media-body{
+    padding: 10px;
+    border-radius: 10%;
+    box-shadow: 0px 2px 4px rgba(110, 110, 110, 0.205);
+  }
+  /* designer tools */
+  #designertools{
+    margin: 0px;
+    max-width: 100%;
+  }
+  .designertools h1{
+    color: #000000;
+    font-weight: 900;
+    margin-bottom: 30px;
+  }
+  .creativity, .provoking{
+    background-color: #f0eeee;
+    columns: #333;
+    font-size: 17px;
+    text-align: left;
+    padding: 10px 40px;
+    border-radius: 20px;
+    box-shadow: #515050;
+    margin: 10px 30px;
+  }
+  .creativity .purple{
+    color: #0c013d;
+    font-size: 28px;
+    line-height: 1.5;
+  }
+  .provoking .green{
+    color: #01323d;
+    font-size: 28px;
+    line-height: 1.5;
+  }
+
+
+  /* location  */
+  .location{
+    max-width: 100%;
+  }
+  .location label{
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: -10px;
+    margin-top: 10px;
+  }
+  .selectarea #locationList p{
+    font-size: 14px;
+  }
+  .selectarea #locationList h4{
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .location button {
+    color: #fff;
+    border: 1px solid  #152bee2f;
+    border-radius: 3px;
+    background-color: #152bee;
+    display: inline-block;
+    padding: 2px 2px !important ;
+    z-index: 3;
+    font-size: 12px;
+    margin-left: 150px;
+  }
+  .selectarea #locationList h5{
+    margin-top: 30px;
+    margin-left: 10px;
+  }
+  .selectarea #locationList image{
+    margin-left: 10px;
+    flex-direction: column;
+  }
+  
+  
+  @media (min-width: 576px) {
+    .location{
+      min-height: 80vh;
+      padding: 10px 20px;
+      width: 100%;
+      display: flex;
+    }
+    .location .container .dropdown select{
+      flex: 1;
+      margin: 20px;
+      padding: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+      color: #070063;
+      font-size: 16px;
+    }
+    
+    .location .container .dropdown select:hover{
+      border-color: #555;
+    }
+    .location .container .dropdown select:focus{
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    .location .container .selectarea{
+      display: flex;
+    }
+    .location .container{
+      width: 100%;
+      padding: 0 10px 0 -20px;
+    }
+    .location .map{
+      flex: 2;
+      position: relative;
+      right: 40px;
+      width: 50%;
+      max-width: 100%;
+      background-color: #7f7e7e;
+      min-height: 50vh;
+      margin-left: 10px;
+    }
+    .drop-list{
+      flex: 1;
+      display: flex;
+      border-radius: 10px;
+      max-width: 500px;
+      min-height: 8vh;
+    }
+    .list-box{
+      border: 1px solid #26264b;
+      border-radius: 10px;
+      max-width: 500px;
+      min-height: 50vh;
+    }
+    .location .selectarea{
+      border: 2px solid #13121260;
+      width: 97%;
+      min-height: 40%;
+      box-shadow: #000000b3;
+      position: relative;
+      z-index: 2;
+      margin-top: -40px;
+      margin-right: 20px;
+      background-color: #fff;
+    }
+    .location label{
+      color: #0c013d;
+      font-size: medium;
+      margin-top: 20px;
+    }
+    .selectarea #locationList{
+      padding: 10px 0;
+    }
+    .cart .btn{
+      position: fixed;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      top: 90%;
+      left: 90%;
+    }
+  }
+  
+  
+  @media (max-width: 576px){
+    .location{
+      min-height: 80vh;
+      padding: 10px 20px;
+      width: 100%;
+    }
+    .location label{
+      color: #0c013d;
+      font-size: medium;
+      margin-top: 20px;
+    }
+    .location .container .dropdown select{
+      margin: 0 10px 40x 0;
+      padding: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+      color: #070063;
+      font-size: 14px;
+    }
+    
+    .location .container .dropdown select:hover{
+      border-color: #555;
+    }
+    .location .container .dropdown select:focus{
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    .location .container{
+      width: 100%;
+      padding: 0 10px 0 -20px;
+    }
+    .location .map{
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      background-color: #7f7e7e;
+      min-height: 50vh;
+      margin-top: 30px;
+    }
+    .drop-list{
+      display: flex;
+      border: 1px solid #26264b;
+      border-radius: 10px;
+      max-width: 100%;
+      padding-bottom: 20px;
+    }
+    .selectarea .items{
+      font-size: 18px;
+      font-weight: 400;
+      font-family: inherit;
+      padding: 0;
+      margin: 10px;
+    }
+    .selectarea #location-list{
+      padding: 10px 0;
+    }
+    .cart .btn{
+      position: fixed;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      align-items: center;
+      top: 95%;
+      left: 40%;
+    }
+  }
+  /* packages  */
+
+  .price-card{
+    border: 1px solid #0c013d5c;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    transition: transform 0.2s;
+  }
+  .price-card:hover{
+    transform: scale(1.15);
+  }
+  #packages{
+    margin-bottom: 40px;
+    max-width: 100%;
+  }
+  /* footer  */
+  footer {
+    background: url("") center center/cover no-repeat #4242d1c2;
+  }
+
+  .footer-widgets {
+    padding: 100px 0;
+  }
+   
+  .single-widget {
+    color: #201f1f;
+  }
+  
+  .single-widget .widget-tiltle {
+    font-size: 17px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 45px;
+  }
+  
+  .single-widget i {
+    color: #f5f5f5;
+  }
+  
+  .single-widget h6 {
+    color: #ffffff;
+  }
+  
+  .single-widget .media {
+    margin-bottom: 20px;
+  }
+  
+  .contact-widget a {
+    color: #a8a3a3;
+  }
+  
+  .contact-widget i {
+    font-size: 22px;
+  }
+
+  
+  span {
+    color: #fff;
+  }
+  
+  .tags-widget {
+    margin: -10px -10px 0 0;
+  }
+  
+  .tags-widget a {
+    color: #222222;
+    display: inline-block;
+    padding: 10px 12px;
+    border-radius: 2px;
+    background-color: #363636;
+    font-size: 14px;
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 700;
+    margin: 10px 10px 0 0;
+  }
+  
+  .tags-widget a:hover {
+    text-decoration: none;
+    color: #333;
+    background-color: #ee1515;
+  }
+  .subscribe-widget{
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+  .subscribe-widget p{
+    margin-left: 10px;
+  }
+  
+  .subscribe-widget form {
+    margin-bottom: 10px;
+  }
+  
+  .subscribe-widget input {
+    font-size: 14px;
+    padding: 0px 10px;
+    background-color: #ccc;
+    border: none;
+    line-height: 0;
+    position: relative;
+    z-index: 0;
+  }
+
+  
+  .subscribe-widget input:focus {
+    outline: none;
+    box-shadow: none;
+    color: #131212;
+  }
+  
+  .subscribe-widget button {
+    background: #152bee;
+    border: none;
+    margin: 40px 50px 0 -20px;
+    padding: 9px 14px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-left: -10px;
+    position: relative;
+    z-index: 0;
+  }
+
+  
+  .subscribe-widget .social-nav {
+    margin-top: 32px;
+  }
+  
+  .subscribe-widget .social-nav a {
+    display: inline-block;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    background-color: #fff;
+    color: #ddd;
+    background-color: #444;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-right: 10px;
+  }
+  
+  .subscribe-widget .social-nav a i {
+    color: #ddd;
+  }
+  
+  .subscribe-widget .social-nav a:hover {
+    background-color: #ee1515;
+  }
+  
+  /*-----------------------------------
+      9 - Foot Note
+  ------------------------------------*/
+  .foot-note {
+    padding: 35px 0;
+    background-color: #f7f7f7;
+    color: #26264b;
+  }
+  
+  .foot-note a {
+    color: #26264b;
+  }
+  
+  .foot-note a:last-child {
+    margin-left: 30px;
+  }
+  
+  .foot-note a.fh5-link {
+    margin-left: 0;
+  }
+  .bottom-bar {
+    background-color: #e2e2e2; /* Background color of the bottom bar */
+    color: #0a0a0a; /* Text color */
+    padding: 10px 0; /* Padding at the top and bottom */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+}
+/* .hide{
+  display: none;
+} */
+
+.cart span{
+  color: #0c013d;
+}
+

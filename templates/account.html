@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WOWMATIC</title>
+    <!-- Plugins Stylesheets -->
+    <link rel="stylesheet" href="assets/css/loader/loaders.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="assets/css/aos/aos.css">
+    <link rel="stylesheet" href="assets/css/swiper/swiper.css">
+    <link rel="stylesheet" href="assets/css/lightgallery.min.css">
+    <!-- custom stylesheet  -->
+    <link rel="stylesheet" href="assets/css/style.css">  
+
+    <!-- Add FullCalendar CSS link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/primeng/9.0.6/resources/components/fullcalendar/fullcalendar.css">
+    <!-- Add FullCalendar JavaScript -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>    <!-- jQuery is required by FullCalendar -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- google maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6BK7R5TdMlIa7M-UaRwXPrgegn4ohC0Q&callback=initMap" async defer></script>
+ 
+</head>
+<body>
+    <!-- start header  -->
+    <header class="position-absolute w-100">
+        <nav class="navbar navbar-expand-md">
+            <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" width="140px" alt=""></a>
+            <div class="group d-flex align-items-center">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"><i class="fa fa-bars"></i>
+                    </span></button>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bookings">Bookings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#transactions">Transactions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#settings">Account Settings</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-danger">Log out</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- header stops -->
+    <main class="container my-5">
+        <section id="bookings">
+            <h2 class="mb-4">Booking Details</h2>
+            <div class="list-group">
+                <!-- Display booking details here -->
+                <a href="#" class="list-group-item list-group-item-action">Booking 1: September 1 to September 10 - Location A</a>
+                <a href="#" class="list-group-item list-group-item-action">Booking 2: September 15 to September 25 - Location B</a>
+            </div>
+        </section>
+        <section id="transactions" class="mt-5">
+            <h2 class="mb-4">Transaction Details</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Transaction ID</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Display transaction details here -->
+                    <tr>
+                        <td>1</td>
+                        <td>2023-09-05</td>
+                        <td>$100.00</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>2023-09-20</td>
+                        <td>$75.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer class="bg-light py-4">
+        <section id="upload-media">
+            <div class="container">
+                <h2 class="mb-4">Upload Media for Booking Period</h2>
+                <div class="form-group">
+                    <input type="file" class="form-control-file" id="media-upload" accept="image/*, video/*">
+                </div>
+                <button id="upload-button" class="btn btn-primary mt-3">Upload</button>
+            </div>
+        </section>
+    </footer>
+    <!-- Media Section -->
+    <section id="media" class="container mt-5">
+        <h2 class="mb-4">Uploaded Media</h2>
+        <div class="row">
+            <!-- Display uploaded media here -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="sample-media-1.jpg" class="card-img-top" alt="Media 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Media Title 1</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="sample-media-2.jpg" class="card-img-top" alt="Media 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Media Title 2</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more media cards as needed -->
+        </div>
+    </section>
+
+    <!-- Settings Page -->
+    <section id="settings" class="container mt-5">
+        <h2 class="mb-4">Settings</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Email Settings</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Email</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Password Management</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" class="form-control" id="currentPassword" placeholder="Enter current password">
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" class="form-control" id="newPassword" placeholder="Enter new password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Change Password</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Add Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Add your custom JavaScript here -->
+    <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WOWMATIC</title>
+    <!-- Plugins Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- custom stylesheet  -->
+    <link rel="stylesheet" href="../static/assets/css/style.css">  
+
+    <!--FullCalendar CSS link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/primeng/9.0.6/resources/components/fullcalendar/fullcalendar.css">
+    <!--JavaScript -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>    <!-- jQuery is required by FullCalendar -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- google maps -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6BK7R5TdMlIa7M-UaRwXPrgegn4ohC0Q&callback=initMap">
+    </script>
+ 
+</head>
+<body>
+    <!-- start header  -->
+    <header class="position-absolute w-100">
+        <nav class="navbar navbar-expand-md">
+            <a class="navbar-brand" href="#"><img src="../static/assets/images/logo.png" width="140px" alt=""></a>
+            <div class="flash_message">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {%for msg in messages %}
+                            <p>{{msg}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div class="group d-flex align-items-center">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"><i class="fa fa-bars"></i>
+                    </span></button>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('Home')}}"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('cart')}}"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#knowMore"><i class="fa-solid fa-graduation-cap"></i> Know More</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#designertools"><i class="fa-solid fa-screwdriver-wrench"></i> Designer Tools</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary" data-toggle="modal" data-target="#loginModal" href="#contact">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- header stops -->
+    <!-- hero starts -->
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>
+                        Smart & Easy Advertisement.
+                    </h1>
+                    <p>
+                        Choose a location, pick the duration, upload media, pay online, 
+                        and boom your advertisement is live. Smart, easy, and budget-friendly 
+                        branding is now automated by Wowmatic!
+                    </p>
+                    <div class="lowText">
+                        <span class="highlightText"><i class="fa-solid fa-circle-check fa-fade"></i>Just €3.99/day </span> <span class="highlightText"> <i class="fa-solid fa-circle-check fa-fade"></i>Cancel at anytime </span>
+                    </div>
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                </div>
+                <div class="col-md-6">
+                    <img src="../static/assets/images/Digital-Signage-Icon.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="texture"></div>
+        <div class="diag-bg"></div>
+    </section>
+    <!-- hero stops  -->
+    <!-- Services Start -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="title text-center">
+                <h2>Kick Start your wowmatic Digital <br> Marketing Campaign</h2>
+                <h5 class="title-blue">Advertise your brand at a cost less than a star coffee!</h5>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="media">
+                            <img class="mr-4" src="../static/assets/images/branding.png" alt="">
+                            <div class="card media-body">
+                                <h5>Smart Branding!​</h5>
+                                No more waiting for hoardings to get free, No missing out the important 
+                                promotion dates, No more printings, No installation costs, Just design, select, and Upload!​
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="media">
+                            <img class="mr-4" src="../static/assets/images/service2.png" alt="">
+                            <div class="card media-body">
+                                <h5>Get Noticed & Views</h5>
+                                Our locations are at places where viewers are waiting or walking we are neither 
+                                at locations where viewers rushing to cross the lights nor running to catch the flight!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-4">
+                        <div class="media">
+                            <img class="mr-4" src="../static/assets/images/service3.png" alt="">
+                            <div class="card media-body">
+                                <h5>Business Innovation</h5>
+                                Our Business Strategy has been designed in a way to accommodate multiple brands to 
+                                advertise easier and smarter with our systematic and automatic process, Try Wowmatic!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </section>
+    <!-- Services End -->
+    <!-- Designer -->
+    <section id="designertools">
+        <div class="designertools">
+            <h1>WHY GO DIGITAL OUTDOOR?</h1>
+            <div class="row">
+                <div class="col-md-6 creativity">
+                    <h3 class="purple">
+                        Driving <br> creativity
+                    </h3>
+                    <p>
+                        Digital Out of Home is the ultimate creative medium. it offers unavoidable impact and memorability
+                        and provides advertizers and agencies with a wealth of creative opportunities. Time sensitive,
+                        location specific, multi-creative, contextual and other dynamic messaging triggers provide advertizers
+                        with new creative opportunities to engage with an even more defined audience.
+                    </p>
+                </div>
+                <div class="col-md-4 provoking">
+                    <h3 class="green">
+                        Provoking action
+                    </h3>
+                    <p>
+                        Post Covid, as consumers spend more time out and about, they are completely exposed to Digital Out of Home
+                        advertizing. Academic studies show that when consumers are out and about, they are in an active mindset. This means they are more inclined
+                        to absorb and engage with new messages.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <br>
+
+    <!-- designer end  -->
+    <div class="location-head">
+        <h4>
+            Where are we?
+        </h4>
+    </div>
+    <br>
+    <section class="location" id="location">
+            <div class="container list-box">
+                <div class="drop-list">
+                    <div class="dropdown">
+                        <label for="country"> Country</label>
+                        <select id="country" onchange="populateCities()">
+                            <option value="country" selected>Select Country</option>
+                            <option value="Cyprus">Cyprus</option>
+                            <!-- Add more country options here -->
+                        </select>
+                    </div>
+                    <div class="dropdown">
+                        <label for="city">City</label>
+                        <select id="city">
+                            <option disabled selected>Select City</option>
+                            <!-- Populate this dropdown based on the selected country using JavaScript-->
+                        </select>
+                    </div>
+                </div>
+                     <br> <hr>
+                    <div class="selectarea">
+                        <div class="items">
+                            <h5>Available Screens:</h5>
+                            <ul id="locationList">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            <!-- Create a div for the map -->
+            <div class="map" id="map">
+            </div>            
+    </section>
+    <hr> <br>
+
+    <section class="bottom-bar hide" id="bottomBar">
+        <div class="container">
+            <div class="cart">
+                <button class="close" id="removeBottomBar">X</button>
+                <ul id="cart" class="cart-item row"></ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- packages start -->
+    <section class="modal fade" id="packagesModal" tabindex="-1" role="dialog" aria-labelledby="packagesModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="packagesModalLabel">Packages</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color: red;">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Your package content here -->
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="price-card">
+                                    <h4>Daily</h4>
+                                    <p>24Hrs Access</p>
+                                    <h6> <strong>3.99EUR</strong> </h6>
+                                    <button id="set24Hours" class="btn btn-primary btn-block package-btn" data-package="24Hours">Continue</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="price-card">
+                                    <h4>Weekly</h4>
+                                    <p>7days Access</p>
+                                    <h6> <strong>24.99EUR</strong> </h6>
+                                    <button id="set7Days" class="btn btn-primary btn-block package-btn" data-package="7Days">Continue</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="price-card">
+                                    <h4>Monthly</h4>
+                                    <p>30 Days Access</p>
+                                    <h6> <strong>99.99EUR</strong> </h6>
+                                    <button id="set30Days" class="btn btn-primary btn-block package-btn" data-package="30Days">Continue</button>
+                                </div>
+                            </div>
+                            <!-- Add more package details as needed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Footer Start -->
+    <footer>
+        <!-- Widgets Start -->
+        <div class="footer-widgets">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="single-widget contact-widget">
+                            <h6 class="widget-tiltle">PART OF AVYUKTHA GROUP COMPANIES</h6>
+                            <p>World’s leading management consulting firms, where bold thinking, inspired people.
+                            </p>
+                            <div class="media">
+                                <i class="fa-solid fa-location-dot"></i>                                <div class="media-body ml-3">
+                                    <h6>Contact us</h6>
+                                    (+357) 7008-8048 <br>
+                                    Info@agcglobal.eu <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="single-widget subscribe-widget" id="contact">
+                            <h6 class="widget-tiltle" style="color: #000000;">Get on Board</h6>
+                            <p>Lets Create an unique point of attraction and revolutionise the advertizing industry</p>
+                            <form class="row"  method="post" action="/create_user_account">
+                                <div class="form-group col-md-6">
+                                    <label for="username">Full Name:</label>
+                                    <input type="text" class="form-control"  name="username" id="username" placeholder="Enter your username" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="email">Email:</label>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="number">Phone:</label>
+                                    <input type="text" class="form-control" name="number" id="number" placeholder="Enter your Phone Number" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="password">Password:</label>
+                                    <input type="password" class="form-control" name="password" id="password" placeholder="Set Password">
+                                </div>
+                                <p><input type="checkbox" required> Agree to Terms and Conditions </p>
+                                <br>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                            <p>We respect your privacy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Widgets End -->
+        <!-- Foot Note Start -->
+        <div class="foot-note">
+            <div class="container">
+                <div
+                    class="footer-content text-center text-lg-left d-lg-flex justify-content-between align-items-center">
+                    <p class="mb-0">&copy; 2023 All Rights Reserved</p>
+                    <p class="mb-0"><a href="#">Terms Of Use</a><a
+                            href="#about">Privacy & Security
+                            Statement</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- Foot Note End -->
+    </footer>
+    <!-- Footer Endt -->
+    <!-- calendar modal  -->
+    <div class="modal fade" id="calendarModal" tabindex="-1" role="dialog" aria-labelledby="calendarModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="calendarModalLabel">Select Subscription Start Date</h5>
+                    <button type="button" id="calendarBtn" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color: red;">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Calendar container -->
+                    <div id="calendar"></div>
+                    <button type="button" class="btn btn-primary mt-3" id="continueButton">Review</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button class="close" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/submit_login_details" method="post">
+                        <div class="form-group">
+                            <label for="usermail">Email</label>
+                            <input type="email" style="color: #000000" class="form-control"  name="user_email" id="usermail" placeholder="Enter Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userpassword">Password</label>
+                            <input type="password" style="color: #000000" class="form-control"  name="password"  id="userpassword" placeholder="Enter Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+                <p>New User? <a target="_blank" href="/index.html#contact">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Function to toggle the visibility of the bottomBar section
+        function toggleBottomBarVisibility() {
+            const bottomBar = document.getElementById('bottomBar');
+            const cartList = document.getElementById('cart');
+            
+            if (cartList.length > 0) {
+                bottomBar.classList.remove('hide');
+            } else {
+                bottomBar.classList.add('hide');
+            }
+        };
+        // JavaScript to remove the bottom bar
+        const removeBottomBarBtn = document.getElementById("removeBottomBar");
+        const bottomBar = document.getElementById("bottomBar");
+
+        removeBottomBarBtn.addEventListener("click", function () {
+            bottomBar.style.display = "none"; // Hide the bottom bar
+        });
+    </script>
+<script src="../static/assets/js/calendar.js"></script>
+<script src="../static/assets/js/map.js"></script>
+<script src="../static/assets/js/screens.js"></script>
+<!--jQuery-->
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--Plugins-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

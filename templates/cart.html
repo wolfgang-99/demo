@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIEW | CART</title>
+    <!-- Plugins Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- custom stylesheet  -->
+    <link rel="stylesheet" href="../static/assets/css/cart.css">
+</head>
+<body>
+    <!-- start header  -->
+    <header class="position-absolute w-100">
+        <nav class="navbar navbar-expand-md">
+            <a class="navbar-brand" href="index.html"><img src="../static/assets/images/logo.png" width="140px" alt=""></a>
+            <div class="group d-flex align-items-center">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"><i class="fa fa-bars"></i>
+                    </span></button>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('Home')}}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('Home')}}">Select Screens</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('dashboard')}}" data-toggle="modal" data-target="#loginModal">Account</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- header stops -->
+    <!-- hero starts -->
+    <section class="hero">
+        <div class="container mt-5">
+            <h2 class="text-center">Review Order</h2>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="cart">
+                    <ul id="cart" class="cart-item-list"></ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="cart-summary">
+                    <h4>Summary</h4>
+                    <p>Total Screens: <span id="totalScreens">0</span></p>
+                    <p>Total Price: $<span id="totalPrice">0.00</span></p>
+                    <button class="btn btn-primary btn-block btn-checkout">Checkout</button>
+                </div>
+            </div>     
+        </div>
+        </div>
+    </section>
+    <!-- hero stops  -->
+    <!-- Foot Note Start -->
+    <div class="foot-note">
+        <div class="container">
+            <div
+                class="footer-content text-center text-lg-left d-lg-flex justify-content-between align-items-center">
+                <p class="mb-0">&copy; 2023 All Rights Reserved</p>
+                <p class="mb-0"><a href="#">Terms Of Use</a><a
+                        href="#about">Privacy & Security
+                        Statement</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- Foot Note End -->
+    <!-- modal login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <p style="color:red;">please login to continue</p>
+                <div class="modal-body">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <label for="usermail">Email</label>
+                            <input type="email" style="color: #000000" class="form-control" id="usermail" placeholder="Enter Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userpassword">Password</label>
+                            <input type="password" style="color: #000000" class="form-control" id="userpassword" placeholder="Enter Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+                <p>New User? <a target="_blank" href="/index.html#contact">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- payment  -->
+
+    <div class="modal fade" id="paymentMethods" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="paymentModalLabel" class="modal-title">Payment Methods</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <!-- Card Payment Button -->
+                        <div class="col-md-6">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#cardPaymentModal">
+                                Card Payment
+                            </button>
+                        </div>
+                        <!-- Bank Transfer Button -->
+                        <div class="col-md-6">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#bankTransferModal">
+                                Bank Transfer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                    
+            </div>
+        </div>
+    </div>
+
+    <!-- Card Payment Modal -->
+    <div class="modal fade" id="cardPaymentModal" tabindex="-1" role="dialog" aria-labelledby="cardPaymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cardPaymentModalLabel">Card Payment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Add a form for card payment details -->
+                    <form id="card-payment-form">
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" class="form-control" id="card-number" placeholder="Card Number" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="expiry-date">Expiry Date</label>
+                                    <input type="text" class="form-control" id="expiry-date" placeholder="MM/YY" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" class="form-control" id="cvv" placeholder="CVV" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-holder">Card Holder Name</label>
+                            <input type="text" class="form-control" id="card-holder" placeholder="Card Holder Name" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Pay with Card</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bank Transfer Modal -->
+    <div class="modal fade" id="bankTransferModal" tabindex="-1" role="dialog" aria-labelledby="bankTransferModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bankTransferModalLabel">Bank Transfer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Display bank account details and instructions -->
+                    <p>Please make a bank transfer to the following account:</p>
+                    <ul>
+                        <li>Bank: Your Bank</li>
+                        <li>Account Number: XXX-XXXX-XXXX</li>
+                        <li>Account Name: Your Company Name</li>
+                        <li>Reference: Your Subscription ID</li>
+                    </ul>
+                    <!-- Include a button to confirm bank transfer -->
+                    <button id="bank-transfer-confirm" class="btn btn-success btn-block">Confirm Bank Transfer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/assets/js/cart.js"></script>
+    <script src="../static/assets/js/screens.js"></script>
+
+<!--jQuery-->
+    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--Plugins-->
+<script src="../static/assets/js/bootstrap.bundle.js"></script>
+</body>
+</html>
