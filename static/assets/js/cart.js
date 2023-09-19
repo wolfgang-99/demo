@@ -37,7 +37,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Remove';
         removeButton.classList.add('btn', 'btn-danger', 'btn-sm');
-        removeButton.addEventListener('click', () => removeFromCart(item));
+        // Add an event listener to the "Remove" button
+            removeButton.addEventListener('click', () => {
+                removeFromCart(item);
+                // Remove the cart item element from the DOM
+                cartItemDiv.remove();
+            });
 
         itemDetailsDiv.appendChild(screenName);
         itemDetailsDiv.appendChild(price);
@@ -94,14 +99,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to remove an item from the cart
     function removeFromCart(item) {
-        // Example:
-        const updatedCartItems = storedCartItems.filter((cartItem) => cartItem.id !== item.id);
-        console.log('Item to remove:', item);
-    console.log('Updated Cart Items:', updatedCartItems);
-        localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+//    // Example: assuming you have a storedCartItems array in localStorage
+//    const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
+//
+//    if (!storedCartItems) {
+//        return;
+//    }
 
-        console.log('Cart Items Updated in Local Storage');
-        // call updateCartDisplay() to refresh the cart display.
-        updateCartDisplay();
-    }
+    // Filter out the item to be removed
+//    const updatedCartItems = storedCartItems.filter((cartItem) => cartItem.id !== item.id);
+
+    // Update localStorage with the updated cart items
+//    localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+
+    // Call updateCartDisplay() to refresh the cart display
+//    updateCartDisplay();
+}
 });
