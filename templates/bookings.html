@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- custom stylesheet  -->
-    <link rel="stylesheet" href="css/style.css">  
+    <link rel="stylesheet" href="../static/assests/css/style.css">
 
     <!-- google maps -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6BK7R5TdMlIa7M-UaRwXPrgegn4ohC0Q&callback=initMap" async defer></script>
@@ -19,7 +19,7 @@
     <header class="navbar sticky-top flex-md-nowrap">
         <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
             <a class="navbar-brand" href="../index.html">
-                <img class="logo-image" style="width: 150px;" src="../assets/images/logo.png" alt="">
+                <img class="logo-image" style="width: 150px;" src="../static/assets/images/logo.png" alt="">
             </a>
         </div>
 
@@ -36,34 +36,34 @@
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="account.html">
+                            <a class="nav-link active" aria-current="page" href="{{url_for('Home')}}">
                                 <i class="bi-wallet me-2"></i>
                                 HOME
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="bookings.html">
+                            <a class="nav-link" href="{{url_for('bookings')}}">
                                 <i class="bi-person me-2"></i>
                                 BOOKINGS
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="transactions.html">
+                            <a class="nav-link" href="{{url_for('transactions')}}">
                                 <i class="bi-gear me-2"></i>
                                 TRANSACTIONS
                             </a>
                         </li>                        
                         <li class="nav-item">
-                            <a class="nav-link" href="settings.html">
+                            <a class="nav-link" href="{{url_for('settings')}}">
                                 <i class="bi-question-circle me-2"></i>
                                 ACCOUNT SETTINGS
                             </a>
                         </li>
 
                         <li class="nav-item border-top mt-auto pt-2">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{url_for('logout')}}">
                                 <i class="bi-box-arrow-left me-2"></i>
                                 Logout
                             </a>
@@ -92,8 +92,8 @@
             </div>
         </main>
     <!-- JAVASCRIPT FILES -->
-    <script src="../assets/js/jquery-3.3.1.js"></script>
-    <script src="../assets/js/bootstrap.bundle.js"></script>
+    <script src="../static/assets/js/jquery-3.3.1.js"></script>
+    <script src="../static/assets/js/bootstrap.bundle.js"></script>
 
     <!-- Link to Bootstrap JS and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

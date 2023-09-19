@@ -17,6 +17,15 @@
     <header class="position-absolute w-100">
         <nav class="navbar navbar-expand-md">
             <a class="navbar-brand" href="index.html"><img src="../static/assets/images/logo.png" width="140px" alt=""></a>
+            <div class="flash_message">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {%for msg in messages %}
+                            <p>{{msg}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
             <div class="group d-flex align-items-center">
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -80,19 +89,19 @@
                 </div>
                 <p style="color:red;">please login to continue</p>
                 <div class="modal-body">
-                    <form action="" method="post">
+                    <form action="/cart" method="post">
                         <div class="form-group">
                             <label for="usermail">Email</label>
-                            <input type="email" style="color: #000000" class="form-control" id="usermail" placeholder="Enter Email" required>
+                            <input type="email" style="color: #000000" class="form-control" name="user_email" id="usermail" placeholder="Enter Email" required>
                         </div>
                         <div class="form-group">
                             <label for="userpassword">Password</label>
-                            <input type="password" style="color: #000000" class="form-control" id="userpassword" placeholder="Enter Password" required>
+                            <input type="password" style="color: #000000" class="form-control" name="password" id="userpassword" placeholder="Enter Password" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>
                 </div>
-                <p>New User? <a target="_blank" href="/index.html#contact">Sign Up</a></p>
+                <p>New User? <a target="_blank" href="{{url_for('Home')}}">Sign Up</a></p>
             </div>
         </div>
     </div>
