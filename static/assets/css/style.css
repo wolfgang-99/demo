@@ -67,14 +67,27 @@ header {
     padding: 0;
     border: none;
     border-radius: 0;
-    line-height: 1.5;
-  }
-  .navbar-toggler::after{
-    border: none;
   }
   .close{
     color: #f70000;
   }
+  /* Initially hide the "X" icon */
+#menu-icon.x {
+  display: none;
+}
+
+/* Style the "X" icon */
+#menu-icon.x::before {
+  content: "\58"; /* Unicode for the "X" symbol */
+  font-family: FontAwesome;
+}
+
+/* Style the "bars" icon */
+#menu-icon.bars::before {
+  content: "\f0c9"; /* Unicode for the "bars" symbol */
+  font-family: FontAwesome;
+}
+
 
   /*-----------------------------------
     2 - Hero
@@ -444,25 +457,50 @@ header {
   .price-card{
     border: 1px solid #0c013d5c;
     border-radius: 10px;
-    padding: 20px;
-    text-align: center;
+    padding: 12%;
+    text-align: left;
     background-color: #fff;
     transition: transform 0.2s;
+  }
+  .price-card h2{
+    margin-left: 20px;
+    color: #0c013d;
+    font-size: 40px;
+  }
+  .price-card .pkg-pkg-btn{
+    border-radius: 30px;
+    width: 49%;
+    margin: 40px 0;
+    padding: 15px;
+  }
+  .price-card h6{
+    margin: 15px 0;
+  }
+  .price-card .fa-circle-check{
+    color: #036108;
   }
   .price-card:hover{
     transform: scale(1.15);
   }
   #packages{
-    margin-bottom: 40px;
     max-width: 100%;
+    padding: 5% 12%;
+  }
+  #packages .pkg-header{
+    margin-bottom: 80px;
+  }
+  #packages .pkg-header h2{
+    font-family: 900;
+    font-size: 30px;
+    color: #0c013d;
+    margin-bottom: 20px;
   }
   /* footer  */
   footer {
     background: url("") center center/cover no-repeat #4242d1c2;
   }
-
-  .footer-widgets {
-    padding: 100px 0;
+  footer .row{
+    padding: 7%;
   }
    
   .single-widget {
@@ -496,7 +534,14 @@ header {
     font-size: 22px;
   }
 
-  
+  @media (min-width: 576px){
+    .contact-widget{
+      padding: 33% 7%;
+    }
+    .contact-widget h4, .contact-widget p{
+      margin-bottom: 20px;
+    }
+  }
   span {
     color: #fff;
   }
@@ -523,7 +568,7 @@ header {
     background-color: #ee1515;
   }
   .subscribe-widget{
-    padding: 30px;
+    padding: 30px 10px;
     border-radius: 10px;
     background-color: #fff;
   }

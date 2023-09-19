@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- custom stylesheet  -->
-    <link rel="stylesheet" href="../static/assests/css/style.css">
+    <link rel="stylesheet" href="css/style.css">  
 
     <!-- google maps -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6BK7R5TdMlIa7M-UaRwXPrgegn4ohC0Q&callback=initMap" async defer></script>
@@ -18,7 +18,7 @@
 <body>
     <header class="navbar sticky-top flex-md-nowrap">
         <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
-            <a class="navbar-brand" href="../index.html">
+            <a class="navbar-brand" href="{{url_for('Home')}}">
                 <img class="logo-image" style="width: 150px;" src="../static/assets/images/logo.png" alt="">
             </a>
         </div>
@@ -36,35 +36,35 @@
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{url_for('Home')}}">
-                                <i class="bi-wallet me-2"></i>
+                            <a class="nav-link" aria-current="page" href="{{url_for('dashboard')}}">
+                                <i class="fa-solid fa-house"></i>
                                 HOME
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('bookings')}}">
-                                <i class="bi-person me-2"></i>
+                            <a class="nav-link active" href="{{url_for('bookings')}}">
+                                <i class="fa-solid fa-person"></i>
                                 BOOKINGS
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{url_for('transactions')}}">
-                                <i class="bi-gear me-2"></i>
+                                <i class="fa-solid fa-tent-arrow-left-right"></i>
                                 TRANSACTIONS
                             </a>
-                        </li>                        
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url_for('settings')}}">
-                                <i class="bi-question-circle me-2"></i>
+                                <i class="fa-solid fa-gear"></i>
                                 ACCOUNT SETTINGS
                             </a>
                         </li>
 
                         <li class="nav-item border-top mt-auto pt-2">
-                            <a class="nav-link" href="{{url_for('logout')}}">
-                                <i class="bi-box-arrow-left me-2"></i>
+                            <a class="nav-link" href="#">
+                                <i class="fa-solid fa-arrow-left"></i>
                                 Logout
                             </a>
                         </li>
@@ -72,12 +72,205 @@
                 </div>
             </nav>
 
-            <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
-                <div class="title-group mb-3">
-                    <h1 class="h2 mb-0">Overview</h1>
-
-                    <small class="text-muted">Hello <span>Thomas</span>, welcome back!</small>
+        <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
+            <div class="title-group mb-3" style="min-height: 70vh;">
+                <h1 class="h2 mb-0">Book a Screen Now</h1>
+            </div>
+            <div id="booking-progress" class="booking-progress-waiting booking-progress-done">
+                <dt></dt><dd></dd>
+            </div>
+        <!-- <div class="booking-appointment" id="booking-card">
+            <div class="booking-appointment-steps has-logo">
+                <div class="company-logo">
+                    <img src="https://wowmatic.in2.cdn-alpha.com/wp-content/uploads/booknetic/settings/d615a3a5485e7b9bf7c771aa2076e0bd.png">
                 </div>
+            </div>
+            <div class="booking-appointment-steps-body">
+                <div class="need-copy booking-active-step" 
+                data-step-id="location" data-loader="card1" data-title="Select Country" 
+                style="display: block;">
+                    <span class="booking-badge">1</span>
+                    <span class="booking-step-title"> Country</span>
+                </div>
+
+                <div class="need-copy  booking-appointment-step-element" 
+                data-step-id="staff" data-loader="card1" 
+                data-title="Select City you want to advertise" 
+                style="display: block;">
+                    <span class="booking-badge">2</span>
+                    <span class="booking-step-title"> Choose City</span>
+                </div>
+                
+                <div class="need-copy  bbooking-appointment-step-element" 
+                data-step-id="service" data-loader="card2" 
+                data-title="Select Screens you want to display ads" 
+                data-service-category="" style="display: block;">
+                    <span class="booking-badge">3</span>
+                    <span class="booking-step-title"> Screen Location</span>
+                </div>
+                
+                <div class="need-copy  booking-appointment-step-element" 
+                data-step-id="service-extras" data-loader="card2" 
+                data-title="Select no. of days you want to promote" 
+                style="display: block;">
+                    <span class="booking-badge">4</span>
+                    <span class="booking-step-title"> Promotion days</span>
+                </div>
+                
+                <div class="need-copy  booking-appointment-step-element" 
+                data-step-id="date-time" data-loader="card3" 
+                data-title="Select the starting date" style="display: block;">
+                    <span class="booking_badge">5</span>
+                    <span class="booking_step_title"> Start date</span>
+                </div>
+                
+                <div class="need-copy  booking-appointment-step-element booking-menu-hidden" 
+                data-step-id="recurring-info" data-loader="card3" data-title="Recurring info">
+                    <span class="booking-badge"></span>
+                    <span class="booking-step_title"> Recurring info</span>
+                </div>
+                
+                <div class="need-copy  booking-appointment-step-element" 
+                data-step-id="information" data-loader="card3" data-title="Fill information" 
+                style="display: block;">
+                    <span class="booking-badge">6</span>
+                    <span class="booking-step_title">Confirm Information</span>
+                </div>
+                
+                <div class=" booking-appointment-step-element" data-step-id="cart" 
+                data-loader="card3" data-title="Add to Booking" style="display: block;">
+                    <span class="booking-badge">7</span>
+                    <span class="booking-step_title"> Booking Info</span>
+                </div>
+
+                <div class=" booking-appointment-step-element" 
+                data-step-id="confirm-details" data-loader="card3" 
+                data-title="Confirm Details" style="display: block;">
+                    <span class="booking-badge">8</span>
+                    <span class="booking-step_title"> Confirmation</span>
+                </div>
+            </div>
+            <div class="booknetic-appointment-steps-footer" style="display: block;">
+                <div class="booknetic-appointment-steps-footer-txt1">Have any questions?</div>
+                <div class="booknetic-appointment-steps-footer-txt2">7777777</div>
+            </div>
+
+            <div class="booking-appointment-container">
+                <div class="booking-appointment-container-header">
+                    <div class="booknetic-appointment-container-header-text">
+                        Select Country
+                    </div>
+                    <div class="booking-appointment-container-header-cart booknetic-hidden">
+                    <div class="booking-appointment-container-cart-btn ">
+                        <img src="https://wowmatic.in2.cdn-alpha.com/wp-content/plugins/booknetic/app/Frontend/assets/icons/cart.svg" alt="">
+                        <span>0</span>
+                    </div>
+                    </div>
+                </div>
+                <div class="booking-appointment-container-body nice-scrollbar-primary">
+
+                    <div class="booking-preloader-card1-box" style="display: none;">
+                        <div class="booking-preloader-card1">
+                            <div class="booking-preloader-card1-image"></div>
+                            <div class="booking-preloader-card1-description"></div>
+                        </div>
+
+                        <div class="booking-preloader-card1">
+                            <div class="booking-preloader-card1-image"></div>
+                            <div class="booking-preloader-card1-description"></div>
+                        </div>
+
+                        <div class="booking-preloader-card1">
+                            <div class="booking-preloader-card1-image"></div>
+                            <div class="booking-preloader-card1-description"></div>
+                        </div>
+                    </div>
+
+                    <div class="booking-preloader-card2-box booknetic-hidden">
+                        <div class="booking-preloader-card2">
+                            <div class="booking-preloader-card2-image"></div>
+                            <div class="booking-preloader-card2-description"></div>
+                        </div>
+
+                        <div class="booking-preloader-card2">
+                            <div class="booking-preloader-card2-image"></div>
+                            <div class="booking-preloader-card2-description"></div>
+                        </div>
+
+                        <div class="booking-preloader-card2">
+                            <div class="booking-preloader-card2-image"></div>
+                            <div class="booking-preloader-card2-description"></div>
+                        </div>
+                    </div>
+
+                    <div class="booking-preloader-card3-box booking-hidden">
+                        <div class="booking-preloader-card3"></div>
+                        <div class="booking-preloader-card3"></div>
+                        <div class="booking-preloader-card3"></div>
+                        <div class="booking-preloader-card3"></div>
+                    </div>
+
+                    <div class="booking_need_copy" style="height: 100%;">
+                        <div data-step-id="location" class="booking-hidden" style="display: block;">	
+                            <div class="booking-card booking-fade" data-id="1">
+                                <div class="booking-card-image">
+                                    <img class="booking-card-location-image" src="https://wowmatic.in2.cdn-alpha.com/wp-content/uploads/booknetic/locations/782fbca803e9844ff623311d1019597b.jpg">
+                                </div>
+                                <div class="booking-card_title">
+                                    <div class="booking-card-title-first">Cyprus</div>
+                                    <div class="booking-card-description"></div>
+                                </div>
+                            </div>
+                            <div class="booking-card booknetic-fade" data-id="2">
+                                <div class="booingc-card-image">
+                                    <img class="booking-card-location-image" src="https://wowmatic.in2.cdn-alpha.com/wp-content/uploads/booknetic/locations/a0ee55abc208f34f1fa0beff4a4e52c8.png">
+                                </div>
+                                <div class="booking-card-title">
+                                    <div class="booking-card-title-first">Greece</div>
+                                    <div class="booking-card-description"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-step-id="staff" class="booking-hidden"></div>
+                        <div data-step-id="service" class="booking-hidden"></div>
+                        <div data-step-id="service-extras" class="booking-hidden"></div>
+                        <div data-step-id="date-time" class="booking-hidden"></div>
+                        <div data-step-id="recurring-info" class="booking-hidden"></div>
+                        <div data-step-id="information" class="booking-hidden"></div>
+                    </div>
+                    <div data-step-id="cart" class="booking-hidden"></div>
+                    <div data-step-id="confirm-details" class="booking-hidden"></div>
+
+                    <div class="booking-appointment-finished-with-error booking-hidden">
+                        <img src="https://wowmatic.in2.cdn-alpha.com/wp-content/plugins/booknetic/app/Frontend/assets/images/payment-error.svg">
+                        <div>We aren’t able to process your payment. Please, try again.</div>
+                    </div>
+                </div>
+                <div class="booking-appointment-container-footer">
+                    <button type="button" class="booknetic-btn-secondary booking-prev-step">BACK</button>
+                    <div class="booking-warning-message"></div>
+                    <button type="button" class="booking-btn-primary booking-next-step booking-next-step-btn">NEXT STEP</button>
+                    <button type="button" class="booking-btn-primary booking-next-step booking-confirm-booking-btn" style="display: none;">CONFIRM BOOKING</button>
+                    <button type="button" class="booking-btn-primary booking-hidden booking-try-again-btn">TRY AGAIN</button>
+                </div>
+            </div>
+            <div class="booking-appointment-finished">
+                <div class="booking-appointment-finished-icon"><img src="https://wowmatic.in2.cdn-alpha.com/wp-content/plugins/booknetic/app/Frontend/assets/icons/status-ok.svg"></div>
+                <div class="booking-appointment-finished-title">Thank you for your Booking!</div>
+                <div class="booking-appointment-finished-subtitle">Your confirmation number:</div>
+                <div class="booking-appointment-finished-code"></div>
+                <div class="booking-appointment_finished-actions">
+                    <button type="button" id="b-oking-add-to-google-calendar-btn" class="booking-btn-secondary">
+                        <img src="https://wowmatic.in2.cdn-alpha.com/wp-content/plugins/booknetic/app/Frontend/assets/icons/calendar.svg"> ADD TO GOOGLE CALENDAR</button>
+                    <a id="booking-add-to-icalendar-btn" download="event.ics" class="booking-btn-secondary">
+                        <img src="https://wowmatic.in2.cdn-alpha.com/wp-content/plugins/booknetic/app/Frontend/assets/icons/calendar.svg"> ADD TO iCAL CALENDAR</a>
+                    <button type="button" id="booking-start-new-booking-btn" class="booking-btn-secondary">
+                        <img src="https://wowmatic.in2.cdn-alpha.com/wp-content/plugins/booknetic/app/Frontend/assets/icons/plus.svg"> START NEW BOOKING</button>
+                    <button type="button" id="booking-finish-btn" class="booking-btn-secondary" data-redirect-url="">
+                        <img src="https://wowmatic.in2.cdn-alpha.com/wp-content/plugins/booknetic/app/Frontend/assets/icons/check-small.svg"> FINISH BOOKING</button>
+                </div>
+            </div>
+        </div> -->
             
             <div class="foot-note">
                 <div class="container">
@@ -92,8 +285,8 @@
             </div>
         </main>
     <!-- JAVASCRIPT FILES -->
-    <script src="../static/assets/js/jquery-3.3.1.js"></script>
-    <script src="../static/assets/js/bootstrap.bundle.js"></script>
+    <script src="../assets/js/jquery-3.3.1.js"></script>
+    <script src="../assets/js/bootstrap.bundle.js"></script>
 
     <!-- Link to Bootstrap JS and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

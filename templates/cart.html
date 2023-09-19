@@ -11,12 +11,13 @@
 
     <!-- custom stylesheet  -->
     <link rel="stylesheet" href="../static/assets/css/cart.css">
+    <link rel="stylesheet" href="../static/assets/style.css">
 </head>
 <body>
     <!-- start header  -->
     <header class="position-absolute w-100">
         <nav class="navbar navbar-expand-md">
-            <a class="navbar-brand" href="index.html"><img src="../static/assets/images/logo.png" width="140px" alt=""></a>
+            <a class="navbar-brand" href="{{url_for('Home')}}"><img src="../static/assets/images/logo.png" width="140px" alt=""></a>
             <div class="flash_message">
                 {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}

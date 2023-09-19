@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- custom stylesheet  -->
-    <link rel="stylesheet" href="../static/assets/css/style.css">  
+    <link rel="stylesheet" href="./static/assets/css/style.css">
 
     <!--FullCalendar CSS link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/primeng/9.0.6/resources/components/fullcalendar/fullcalendar.css">
@@ -28,29 +28,23 @@
     <header class="position-absolute w-100">
         <nav class="navbar navbar-expand-md">
             <a class="navbar-brand" href="#"><img src="../static/assets/images/logo.png" width="140px" alt=""></a>
-            <div class="flash_message">
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                        {%for msg in messages %}
-                            <p>{{msg}}</p>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
-            </div>
             <div class="group d-flex align-items-center">
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation"><span
-                        class="navbar-toggler-icon"><i class="fa fa-bars"></i>
-                    </span></button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+            <i class="fa fa-bars" id="menu-icon"></i>
+            </span>
+            </button>
+
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="{{url_for('Home')}}"><i class="fa-solid fa-house"></i> Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{url_for('cart')}}"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#knowMore"><i class="fa-solid fa-graduation-cap"></i> Know More</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#designertools"><i class="fa-solid fa-screwdriver-wrench"></i> Designer Tools</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#designertools"><i class="fa-solid fa-graduation-cap"></i> Know More</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#location"><i class="fa-solid fa-screwdriver-wrench"></i> Designer Tools</a></li>
                     <li class="nav-item"><a class="nav-link btn btn-primary" data-toggle="modal" data-target="#loginModal" href="#contact">Login</a></li>
                 </ul>
             </div>
@@ -95,7 +89,7 @@
                 <div class="row">
                     <div class="col-sm-6 col-lg-4">
                         <div class="media">
-                            <img class="mr-4" src="../static/assets/images/branding.png" alt="">
+                            <img class="mr-4" src="assets/images/branding.png" alt="">
                             <div class="card media-body">
                                 <h5>Smart Branding!​</h5>
                                 No more waiting for hoardings to get free, No missing out the important 
@@ -105,7 +99,7 @@
                     </div>
                     <div class="col-sm-6 col-lg-4">
                         <div class="media">
-                            <img class="mr-4" src="../static/assets/images/service2.png" alt="">
+                            <img class="mr-4" src="assets/images/service2.png" alt="">
                             <div class="card media-body">
                                 <h5>Get Noticed & Views</h5>
                                 Our locations are at places where viewers are waiting or walking we are neither 
@@ -115,7 +109,7 @@
                     </div>
                     <div class="col-sm-12 col-lg-4">
                         <div class="media">
-                            <img class="mr-4" src="../static/assets/images/service3.png" alt="">
+                            <img class="mr-4" src="assets/images/service3.png" alt="">
                             <div class="card media-body">
                                 <h5>Business Innovation</h5>
                                 Our Business Strategy has been designed in a way to accommodate multiple brands to 
@@ -164,7 +158,7 @@
     <!-- designer end  -->
     <div class="location-head">
         <h4>
-            Where are we?
+            Check our Screen locations, we are updating the list daily!
         </h4>
     </div>
     <br>
@@ -192,10 +186,12 @@
                         <div class="items">
                             <h5>Available Screens:</h5>
                             <ul id="locationList">
+                                <p id="endDateInput"></p>
                             </ul>
                         </div>
                     </div>
                 </div>
+            </div>
             <!-- Create a div for the map -->
             <div class="map" id="map">
             </div>            
@@ -210,6 +206,58 @@
             </div>
         </div>
     </section>
+
+    <div id="packages" class="container mt-5">
+        <div class="pkg-header">
+            <h2>Let’s See how budget-friendly</h2>
+            <p>
+                We have prepared some estimates so that you can plan your 
+                budget based our your requirements with confidence.
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="price-card">
+                    <h5>Daily</h5>
+                    <h2 id="amount"> <strong>3.99EUR</strong> </h2>
+                    <p>24Hrs Access</p>
+                    <hr>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Promote per day</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Show ad 100 times/day</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Daily display reports</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Market at target location</strong></h6>
+                    <button id="set24Hours" data-toggle="modal" data-target="#loginModal" class="btn btn-primary btn-block package-btn pkg-pkg-btn" data-package="24Hours">Book Now</button>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="price-card">
+                    <h5>Weekly</h5>
+                    <h2 id="amount"> <strong>24.99EUR</strong> </h2>
+                    <p>7Days Access</p>
+                    <hr>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Promote per week</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Market in less budget</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Citywide range visibility</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Full Coverage branding</strong></h6>
+                    <button id="set24Hours" data-toggle="modal" data-target="#loginModal" class="btn btn-primary btn-block package-btn pkg-pkg-btn" data-package="24Hours">Book Now</button>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="price-card">
+                    <h5>Monthly</h5>
+                    <h2 id="amount"> <strong>99.99EUR</strong> </h2>
+                    <p>30Days Access</p>
+                    <hr>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Promote more for less</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Full Month Branding</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>display reports & insights</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>More brand visibility</strong></h6>
+                    <button id="set24Hours" data-toggle="modal" data-target="#loginModal" class="btn btn-primary btn-block package-btn pkg-pkg-btn" data-package="24Hours">Book Now</button>
+                </div>
+            </div>
+            <!-- Add more package details as needed -->
+        </div>
+    </div>
 
     <!-- packages start -->
     <section class="modal fade" id="packagesModal" tabindex="-1" role="dialog" aria-labelledby="packagesModalLabel" aria-hidden="true">
@@ -229,7 +277,7 @@
                                 <div class="price-card">
                                     <h4>Daily</h4>
                                     <p>24Hrs Access</p>
-                                    <h6> <strong>3.99EUR</strong> </h6>
+                                    <h6 id="amount"> <strong>3.99EUR</strong> </h6>
                                     <button id="set24Hours" class="btn btn-primary btn-block package-btn" data-package="24Hours">Continue</button>
                                 </div>
                             </div>
@@ -237,7 +285,7 @@
                                 <div class="price-card">
                                     <h4>Weekly</h4>
                                     <p>7days Access</p>
-                                    <h6> <strong>24.99EUR</strong> </h6>
+                                    <h6 id="amount"> <strong>24.99EUR</strong> </h6>
                                     <button id="set7Days" class="btn btn-primary btn-block package-btn" data-package="7Days">Continue</button>
                                 </div>
                             </div>
@@ -245,7 +293,7 @@
                                 <div class="price-card">
                                     <h4>Monthly</h4>
                                     <p>30 Days Access</p>
-                                    <h6> <strong>99.99EUR</strong> </h6>
+                                    <h6 id="amount"> <strong>99.99EUR</strong> </h6>
                                     <button id="set30Days" class="btn btn-primary btn-block package-btn" data-package="30Days">Continue</button>
                                 </div>
                             </div>
@@ -260,13 +308,11 @@
 
     <!-- Footer Start -->
     <footer>
-        <!-- Widgets Start -->
-        <div class="footer-widgets">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="single-widget contact-widget">
-                            <h6 class="widget-tiltle">PART OF AVYUKTHA GROUP COMPANIES</h6>
+                            <h4 class="widget-tiltle">PART OF AVYUKTHA GROUP COMPANIES</h4>
                             <p>World’s leading management consulting firms, where bold thinking, inspired people.
                             </p>
                             <div class="media">
@@ -282,22 +328,22 @@
                         <div class="single-widget subscribe-widget" id="contact">
                             <h6 class="widget-tiltle" style="color: #000000;">Get on Board</h6>
                             <p>Lets Create an unique point of attraction and revolutionise the advertizing industry</p>
-                            <form class="row"  method="post" action="/create_user_account">
+                            <form class="row">
                                 <div class="form-group col-md-6">
                                     <label for="username">Full Name:</label>
-                                    <input type="text" class="form-control"  name="username" id="username" placeholder="Enter your username" required>
+                                    <input type="text" class="form-control" id="username" placeholder="Enter your username" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="email">Email:</label>
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" required>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="number">Phone:</label>
-                                    <input type="text" class="form-control" name="number" id="number" placeholder="Enter your Phone Number" required>
+                                    <input type="text" class="form-control" id="number" placeholder="Enter your Phone Number" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="password">Password:</label>
-                                    <input type="password" class="form-control" name="password" id="password" placeholder="Set Password">
+                                    <input type="password" class="form-control" id="password" placeholder="Set Password">
                                 </div>
                                 <p><input type="checkbox" required> Agree to Terms and Conditions </p>
                                 <br>
@@ -352,14 +398,14 @@
                     <button class="close" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    <form action="/submit_login_details" method="post">
+                    <form action="" method="post">
                         <div class="form-group">
                             <label for="usermail">Email</label>
-                            <input type="email" style="color: #000000" class="form-control"  name="user_email" id="usermail" placeholder="Enter Email" required>
+                            <input type="email" style="color: #000000" class="form-control" id="usermail" placeholder="Enter Email" required>
                         </div>
                         <div class="form-group">
                             <label for="userpassword">Password</label>
-                            <input type="password" style="color: #000000" class="form-control"  name="password"  id="userpassword" placeholder="Enter Password" required>
+                            <input type="password" style="color: #000000" class="form-control" id="userpassword" placeholder="Enter Password" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>
@@ -368,32 +414,38 @@
             </div>
         </div>
     </div>
+    </div> 
     <script>
         // Function to toggle the visibility of the bottomBar section
-        function toggleBottomBarVisibility() {
-            const bottomBar = document.getElementById('bottomBar');
-            const cartList = document.getElementById('cart');
-            
-            if (cartList.length > 0) {
-                bottomBar.classList.remove('hide');
-            } else {
-                bottomBar.classList.add('hide');
-            }
-        };
-        // JavaScript to remove the bottom bar
-        const removeBottomBarBtn = document.getElementById("removeBottomBar");
-        const bottomBar = document.getElementById("bottomBar");
+function toggleBottomBarVisibility() {
+    const bottomBar = document.getElementById('bottomBar');
+    const cartList = document.getElementById('cart'); // Assuming you have a cart element
 
-        removeBottomBarBtn.addEventListener("click", function () {
-            bottomBar.style.display = "none"; // Hide the bottom bar
-        });
+    if (cartList && cartList.children.length > 0) {
+        bottomBar.classList.remove('hide');
+    } else {
+        bottomBar.classList.add('hide');
+    }
+}
+
+// JavaScript to remove the bottom bar
+const removeBottomBarBtn = document.getElementById("removeBottomBar");
+const bottomBar = document.getElementById("bottomBar");
+
+removeBottomBarBtn.addEventListener("click", function () {
+    bottomBar.style.display = "none"; // Hide the bottom bar
+});
+
+// Call the toggleBottomBarVisibility function initially to set the initial visibility
+toggleBottomBarVisibility();
+
     </script>
 <script src="../static/assets/js/calendar.js"></script>
 <script src="../static/assets/js/map.js"></script>
 <script src="../static/assets/js/screens.js"></script>
+<script src="../static/assets/js/script.js"></script>
 <!--jQuery-->
 <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!--Plugins-->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

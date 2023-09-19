@@ -122,3 +122,8 @@ header {
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  .cart-item img{
+    width: 60%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
