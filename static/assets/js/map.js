@@ -6,7 +6,7 @@ function initMap() {
     // Replace 'map' with the ID of the div where you want to display the map
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 34.707130, lng: 33.022617 },
-        zoom: 3, // Adjust the initial zoom level as needed
+        zoom: 9, // Adjust the initial zoom level as needed
     });
 }
 
@@ -69,15 +69,14 @@ const locationData = {
 function updateMap() {
     const selectedCountry = document.getElementById("country").value;
     const selectedCity = document.getElementById("city").value;
-    const mapContainer = document.getElementById("map");
 
     // Check if the selected country and city are valid
     if (locationData[selectedCountry] && locationData[selectedCountry][selectedCity]) {
         const location = locationData[selectedCountry][selectedCity];
 
-        // Create a new map centered on the selected location
+        // Set the center and zoom of the existing map
         map.setCenter(location); // Update the existing map
-        map.setZoom(13); // Adjust the zoom level as needed
+        map.setZoom(10); // Adjust the zoom level as needed
 
         // Add a marker at the selected location
         new google.maps.Marker({
@@ -88,29 +87,4 @@ function updateMap() {
     }
 }
 
-// Add markers for the five different locations
-function addMarkers(locations) {
-    locations.forEach(location => {
-        addMarker(location);
-    });
-}
 
-// Function to add a marker to the map at a specific location
-function addMarker(location) {
-    new google.maps.Marker({
-        position: location,
-        map: map, // Use the global map variable
-    });
-}
-
-// Define your five different locations
-const locations = [
-    { lat: 34.6975178, lng: 33.034058 },
-    { lat: 34.707130, lng: 33.022617 },
-    { lat: 35.185566, lng: 33.382275 },
-    { lat: 34.923096, lng: 33.634045 },
-    { lat: 34.77679, lng: -32.42451 }
-];
-
-// Call the addMarkers function to add markers for the five locations
-addMarkers(locations);
