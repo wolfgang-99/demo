@@ -42,6 +42,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 removeFromCart(item);
                 // Remove the cart item element from the DOM
                 cartItemDiv.remove();
+
+                // Update total screens and total price
+                totalScreens--;
+                totalPrice -= item.cost;
             });
 
         itemDetailsDiv.appendChild(screenName);
