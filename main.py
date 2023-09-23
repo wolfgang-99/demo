@@ -1,5 +1,5 @@
 from datetime import timedelta
-from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from server import authenticate_user, create_user_account, submit_email_details
 
 app = Flask(__name__)
@@ -86,6 +86,7 @@ def dashboard():
         flash('you need to login first', 'info')
         return redirect(url_for('Home'))
 
+
 @app.route('/cart_Login_Failed_Incorrect_Password')
 def cart_login_failed_incorrect_password():
     session.pop("user_email", None)
@@ -100,7 +101,7 @@ def cart_login_failed_user_not_found():
     return redirect(url_for("cart"))
 
 
-@app.route('/cart',  methods=['POST', 'GET'])
+@app.route('/cart', methods=['POST', 'GET'])
 def cart():
     if request.method == 'POST':
         user_email = request.form.get('user_email')
@@ -124,15 +125,23 @@ def cart():
             return redirect(url_for('cart_login_failed_user_not_found'))
     else:
         return render_template("cart.html")
+
+
 @app.route('/bookings')
 def bookings():
     return render_template('bookings.html')
+
+
 @app.route('/settings')
 def settings():
     return render_template('settings.html')
+
+
 @app.route('/transaction')
 def transactions():
     return render_template('transactions.html')
+
+
 @app.route('/')
 def root():
     return redirect(url_for('Home'))
